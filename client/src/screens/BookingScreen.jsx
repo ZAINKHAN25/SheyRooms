@@ -6,6 +6,7 @@ import { Error } from "../components/Error"
 import StripeCheckout from 'react-stripe-checkout'
 import moment from "moment"
 import Swal from 'sweetalert2'
+import apiUrl from "../apiUrl.js"
 
 export const BookingScreen = () => {
     const { roomid, checkin, checkout } = useParams()
@@ -27,7 +28,7 @@ export const BookingScreen = () => {
             }
             try {
                 setLoading(true)
-                const data = (await axios.post('/api/rooms/getroombyid', { roomid })).data
+                const data = (await axios.post(`${apiUrl}/api/rooms/getroombyid`, { roomid })).data
                 setRoom(data)
                 setAmount(data.rentPerNight * days)
                 setLoading(false)
@@ -47,7 +48,7 @@ export const BookingScreen = () => {
         }
         try {
             setLoading(true)
-            const result = await axios.post('/api/bookings/bookroom', bookingDetails)
+            const result = await axios.post(`${apiUrl}/api/bookings/bookroom`, bookingDetails)
             setLoading(false)
             Swal.fire('Congratulations', 'Room has been booked Successfully', 'success').then(result => {
                 window.location.href = '/profile'

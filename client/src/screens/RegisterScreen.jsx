@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Loader } from "../components/Loader"
 import { Error } from "../components/Error"
 import { Success } from "../components/Success"
+import apiUrl from "../apiUrl.js";
 
 export const RegisterScreen = () => {
     const [name, setName] = useState('')
@@ -20,7 +21,7 @@ export const RegisterScreen = () => {
             }
             try {
                 setLoading(true)
-                const result = (await axios.post('/api/users/register', user)).data
+                const result = (await axios.post(`${apiUrl}/api/users/register`, user)).data
                 setLoading(false)
                 setSucces(true)
                 setName('')
