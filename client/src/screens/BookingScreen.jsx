@@ -18,7 +18,7 @@ export const BookingScreen = () => {
     const checkOut = moment(checkout, 'DD-MM-YYYY')
     const days = moment.duration(checkOut.diff(checkIn)).asDays() + 1
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    const clientKey = 'pk_test_51OHpwDAQGIQYXRjhC0POSJmj8TZeI2gYYfjaT5519G3FVwZTPZgtkzvynRuKXe7DNGYs2cAjMyNVsDqJUlHtlaob009k9O137T'
+    const clientKey = 'pk_test_51NVGuJCClubva3WfnCXB8NJ9WRodzb7evEwzafAawOdneYgjF0KEoReSpjjYw3Qb7t2kobovcQjVz0sTVRGcD7Gh00RBwXVb3o'
 
     useEffect(() => {
         const fetchData = async () => {

@@ -4,7 +4,7 @@ const Booking = require('../models/booking')
 const Room = require('../models/room')
 const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
-const stripe = require('stripe')('sk_test_51OHpwDAQGIQYXRjhU8d2ScTIOlO7r0QVb7WRVYAZOls49h7gDijeyL3CBKb0MlXkVBPhyffpHwdI6cqbAVP2Dme300e33VMM48')
+const stripe = require('stripe')('sk_test_51NVGuJCClubva3WfyahacpeHILURLemtGwj3cb9pBAkdnSO8mTEKgC4GU4YZMwY61FIDCHS1jdXxobJT6v4yYHwd00KTKJT42k')
 
 router.post('/bookroom', async (req, res) => {
     const { room, checkIn, checkOut, amount, days, userId, token } = req.body
@@ -41,7 +41,7 @@ router.post('/bookroom', async (req, res) => {
             await temp.save()
         }
         res.send('Payment Successfull!, Your Romm is Booked!')
-    } catch (error) { console.log(error) }
+    } catch (error) { console.log(error, "==> Errr") }
 })
 
 router.post('/getbookingsbyuserid', async (req, res) => {

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Loader } from "../components/Loader"
 import Swal from 'sweetalert2'
-import { Tag, Divider} from 'antd'
+import { Tag, Divider } from 'antd'
 
 const { TabPane } = Tabs
 const user = JSON.parse(localStorage.getItem('currentUser'))
