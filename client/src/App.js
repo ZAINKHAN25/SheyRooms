@@ -1,12 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar } from "./components/Navbar"
-import { HomeScreen } from './screens/HomesScreen'
-import { BookingScreen } from './screens/BookingScreen'
-import { LoginScreen } from './screens/LoginScreen'
-import { RegisterScreen } from './screens/RegisterScreen'
-import { ProfileScreen } from './screens/ProfileScreen'
-import { AdminScreen } from './screens/AdminScreen'
-import { LandingScreen } from './screens/LandingScreen'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { Navbar } from "./components/Navbar";
+import { HomeScreen } from './screens/HomesScreen';
+import { BookingScreen } from './screens/BookingScreen';
+import { LoginScreen } from './screens/LoginScreen';
+import { RegisterScreen } from './screens/RegisterScreen';
+import { ProfileScreen } from './screens/ProfileScreen';
+import { AdminScreen } from './screens/AdminScreen';
+import { LandingScreen } from './screens/LandingScreen';
+
+
 export const App = () => {
   return (
     <>
@@ -23,5 +26,5 @@ export const App = () => {
         </Routes>
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
