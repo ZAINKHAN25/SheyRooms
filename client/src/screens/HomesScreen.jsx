@@ -77,11 +77,11 @@ export const HomeScreen = () => {
     const filterByType = event => {
         setType(event)
         if (event !== 'all') {
-        const tempRooms = duplicateRooms.filter(
-            room => room.type.toLowerCase() == event.toLowerCase()
-        )
-        setRooms(tempRooms)
-        } else {setRooms(duplicateRooms)}
+            const tempRooms = duplicateRooms.filter(
+                room => room.type.toLowerCase() == event.toLowerCase()
+            )
+            setRooms(tempRooms)
+        } else { setRooms(duplicateRooms) }
     }
 
     return (
@@ -113,8 +113,8 @@ export const HomeScreen = () => {
                 </div>
             </div>
             <div className="row justify-content-center mt-5">
-                {loading ? <Loader /> : (rooms.map(room => {
-                    return <div className="col-md-9 mt-2"><Room room={room} checkin={checkIn} checkout={checkOut} /></div>
+                {loading ? <Loader /> : (rooms.map((room, i) => {
+                    return <div key={i} className="col-md-9 mt-2"><Room room={room} checkin={checkIn} checkout={checkOut} /></div>
                 }))}
             </div>
         </div>

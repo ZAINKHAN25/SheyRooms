@@ -29,9 +29,9 @@ export const Room = ({ room, checkin, checkout }) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Carousel>
-                        {room.imageUrls.map(url => {
+                        {room.imageUrls.map((url, i) => {
                             return (
-                                <Carousel.Item>
+                                <Carousel.Item key={i}>
                                     <img
                                         className="d-block w-100 bigimg"
                                         src={url}
