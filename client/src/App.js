@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import { Navbar } from "./components/Navbar";
 import { HomeScreen } from './screens/HomesScreen';
 import { BookingScreen } from './screens/BookingScreen';
@@ -9,22 +8,19 @@ import { ProfileScreen } from './screens/ProfileScreen';
 import { AdminScreen } from './screens/AdminScreen';
 import { LandingScreen } from './screens/LandingScreen';
 
-
 export const App = () => {
   return (
-    <>
-      <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<LandingScreen />} />
-          <Route path="/home" element={<HomeScreen />} />
-          <Route path="/book/:roomid/:checkin/:checkout" element={<BookingScreen />} />
-          <Route path='/login' element={<LoginScreen />} />
-          <Route path='/register' element={<RegisterScreen />} />
-          <Route path='/profile' element={<ProfileScreen />} />
-          <Route path='/admin' element={<AdminScreen />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<LandingScreen />} />
+
+        <Route path='/home' element={<Navbar><HomeScreen /></Navbar>} />
+        <Route path='/book/:roomid/:checkin/:checkout' element={<Navbar><BookingScreen /></Navbar>} />
+        <Route path='/login' element={<Navbar><LoginScreen /></Navbar>} />
+        <Route path='/register' element={<Navbar><RegisterScreen /></Navbar>} />
+        <Route path='/profile' element={<Navbar><ProfileScreen /></Navbar>} />
+        <Route path='/admin' element={<Navbar><AdminScreen /></Navbar>} />
+      </Routes>
+    </BrowserRouter>
   );
 };

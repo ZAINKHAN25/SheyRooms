@@ -2,17 +2,15 @@ import { useEffect, useState } from "react"
 import axios from 'axios';
 import { Room } from "../components/Room";
 import { Loader } from "../components/Loader";
-import { Error } from "../components/Error";
 import moment from 'moment';
 import 'antd/dist/reset.css';
 import apiUrl from '../apiUrl.js';
-import { DatePicker, Space } from 'antd'
+import { DatePicker } from 'antd'
 const { RangePicker } = DatePicker
 
 export const HomeScreen = () => {
     const [rooms, setRooms] = useState([])
     const [loading, setLoading] = useState()
-    const [error, setError] = useState()
     const [checkIn, setCheckIn] = useState()
     const [checkOut, setCheckOut] = useState()
     const [duplicateRooms, setDuplicateRooms] = useState([])
@@ -28,7 +26,6 @@ export const HomeScreen = () => {
                 setDuplicateRooms(data)
                 setLoading(false)
             } catch (error) {
-                setError(true)
                 console.log(error)
                 setLoading(false)
             }
@@ -79,7 +76,7 @@ export const HomeScreen = () => {
         setType(event)
         if (event !== 'all') {
             const tempRooms = duplicateRooms.filter(
-                room => room.type.toLowerCase() == event.toLowerCase()
+                room => room.type.toLowerCase() === event.toLowerCase()
             )
             setRooms(tempRooms)
         } else { setRooms(duplicateRooms) }
@@ -87,7 +84,7 @@ export const HomeScreen = () => {
 
     return (
         <div className="container">
-            <div className="row mt-5">
+            <div className="row mt-5 d-flex justify-content-center">
                 <div className="col-md-3">
                     <RangePicker format='DD-MM-YYYY' onChange={filterByDate} />
                 </div>

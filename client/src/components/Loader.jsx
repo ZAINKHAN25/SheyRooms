@@ -4,8 +4,8 @@ export const Loader = () => {
     const [loading, setLoading] = useState(true)
 
     return (
-        <div className=''>
-            <HashLoader color='#000' loading={loading} size = {120} />
+        <div className='d-flex justify-content-center'>
+            <HashLoader color='#000' loading={loading} size={120} />
         </div>
     )
 }

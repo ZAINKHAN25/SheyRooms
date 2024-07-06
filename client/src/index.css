@@ -16,6 +16,7 @@ code {
 
 nav {
   background: black;
+  height: 10vh !important;
 }
 
 nav a {
@@ -78,22 +79,39 @@ nav a {
   float: right;
 }
 
-.landing {
+.landing-page-father {
   background: black;
-  height: 100vh;
+}
+
+.landing {
+  min-height: 90vh;
   color: white;
   text-align: center;
   padding: 5vh 5vw;
+  flex-wrap: wrap;
 }
 
-.landing h1,
-.landing h2 {
-  font-size: 10rem;
+.Txt-Div-LPage {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  min-width: 200px;
+  width: 600px;
+}
+
+.landing h1 {
+  font-size: 44px;
+}
+
+.landing h3 {
+  font-size: 20px;
 }
 
 .landing button {
-  margin: 25px;
-  font-size: 1.5rem;
+  margin: 25px 0;
+  font-size: 20px;
   padding: 10px 15px;
   font-weight: 600;
   text-transform: uppercase;
@@ -106,4 +124,41 @@ nav a {
   background: white !important;
   transform: scale(1.05);
   color: black !important;
+}
+
+.Img-Div-LPage img {
+  transform: translateY(0) scale(1);
+  object-fit: cover;
+  width: 500px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 60%);
+  animation: UpAndDownAnimation 5s ease-in infinite;
+}
+
+@keyframes UpAndDownAnimation {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(10px) scale(1.02);
+  }
+
+  50% {
+    transform: translateY(0) scale(1.01);
+  }
+
+  75% {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 550px) {
+  .Img-Div-LPage img{
+    display: none !important;
+  }
 }
