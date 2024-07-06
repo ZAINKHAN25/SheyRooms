@@ -12,15 +12,50 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LandingScreen />} />
 
-        <Route path='/home' element={<Navbar><HomeScreen /></Navbar>} />
-        <Route path='/book/:roomid/:checkin/:checkout' element={<Navbar><BookingScreen /></Navbar>} />
-        <Route path='/login' element={<Navbar><LoginScreen /></Navbar>} />
-        <Route path='/register' element={<Navbar><RegisterScreen /></Navbar>} />
-        <Route path='/profile' element={<Navbar><ProfileScreen /></Navbar>} />
-        <Route path='/admin' element={<Navbar><AdminScreen /></Navbar>} />
+        <Route path='/' element={
+          <LandingScreen />
+        } />
+
+        <Route path='/home' element={
+          <>
+            <Navbar />
+            <HomeScreen />
+          </>
+        } />
+        <Route path='/book/:roomid/:checkin/:checkout' element={
+          <>
+            <Navbar />
+            <BookingScreen />
+          </>
+        } />
+        <Route path='/login' element={
+          <>
+            <Navbar />
+            <LoginScreen />
+          </>
+        } />
+        <Route path='/register' element={
+          <>
+            <Navbar />
+            <RegisterScreen />
+          </>
+        } />
+        <Route path='/profile' element={
+          <>
+            <Navbar />
+            <ProfileScreen />
+          </>
+        } />
+        <Route path='/admin' element={
+          <>
+            <Navbar />
+            <AdminScreen />
+          </>
+        } />
+
       </Routes>
     </BrowserRouter>
+
   );
 };
