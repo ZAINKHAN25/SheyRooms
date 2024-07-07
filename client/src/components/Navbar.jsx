@@ -1,8 +1,16 @@
 export const Navbar = () => {
-    const user = JSON.parse(localStorage.getItem('currentUser'))
+
+    let currentAdmin = false;
+
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (user?.isAdmin === true) {
+        currentAdmin = true;
+    }
+
     const logout = () => {
         localStorage.removeItem('currentUser')
-        window.location.href ='/login'
+        window.location.href = '/login'
     }
     return (
         <nav className="navbar navbar-dark navbar-expand-lg">
@@ -20,6 +28,9 @@ export const Navbar = () => {
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
                                     <li><a className="dropdown-item" href="/profile">Bookings</a></li>
+                                    {
+                                        currentAdmin && (<li><a className="dropdown-item" href="/admin">Admin</a></li>)
+                                    }
                                     <li><a className="dropdown-item" href="#" onClick={logout}>Logout</a></li>
                                 </ul>
                             </div>

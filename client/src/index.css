@@ -43,8 +43,8 @@ nav a {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   margin: 15px auto;
-  animation: fadeLeft linear;
-  transition: all .8s;
+  animation: fadeLeft 1s linear;
+  transition: all 2s;
   animation-timeline: view();
 }
 
@@ -189,5 +189,14 @@ nav a {
 @media (max-width: 550px) {
   .Img-Div-LPage img {
     display: none !important;
+  }
+
+  .room-father{
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+  }
+
+  .room {
+    animation-timeline: initial;
   }
 }

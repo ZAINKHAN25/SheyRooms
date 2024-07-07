@@ -4,6 +4,7 @@ import { Loader } from "../components/Loader"
 import { Error } from "../components/Error"
 import { Success } from "../components/Success"
 import apiUrl from "../apiUrl.js";
+import { useNavigate } from "react-router-dom"
 
 export const RegisterScreen = () => {
     const [name, setName] = useState('')
@@ -13,6 +14,7 @@ export const RegisterScreen = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState()
     const [success, setSucces] = useState()
+    const navigaTo = useNavigate();
 
     const register = async () => {
         if (password === confirmPassword) {
@@ -22,12 +24,15 @@ export const RegisterScreen = () => {
             try {
                 setLoading(true)
                 const result = (await axios.post(`${apiUrl}/api/users/register`, user)).data
-                setLoading(false)
-                setSucces(true)
+                setLoading(false);
+                setSucces(true);
                 setName('')
                 setEmail('')
                 setPassword('')
                 setConfirmPassword('')
+                setTimeout(() => {
+                    navigaTo('/login')
+                }, 3000);
             } catch (error) {
                 console.log(error)
                 setLoading(false)
