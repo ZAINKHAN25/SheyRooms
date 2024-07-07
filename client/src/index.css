@@ -35,7 +35,25 @@ nav a {
 }
 
 .btn {
-  background: black;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 2px solid white !important;
+  transform: scale(1);
+  font-weight: 550;
+  background-color: black;
+  border: 1px solid black !important;
+  transition: all .5s;
+}
+
+.btn:hover {
+  background: white;
+  transform: scale(1.05);
+  color: black;
+}
+
+.btn:active {
+  background-color: rgba(0, 0, 0, 80%) !important;
+  color: white !important;
 }
 
 .room {
