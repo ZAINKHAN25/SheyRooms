@@ -97,7 +97,7 @@ nav a {
 
 .Txt-Div-LPage {
   display: flex;
-  align-items: start;
+  flex: start;
   justify-content: center;
   flex-direction: column;
   text-align: left;
@@ -191,7 +191,7 @@ nav a {
     display: none !important;
   }
 
-  .room-father{
+  .room-father {
     padding-top: 0 !important;
     padding-bottom: 10px !important;
   }

@@ -1,18 +1,20 @@
-import { Tabs } from "antd"
-import TabPane from "antd/es/tabs/TabPane"
-import { useEffect, useState } from "react"
-import axios from 'axios'
-import { Loader } from "../components/Loader"
-import Swal from 'sweetalert2'
-import apiUrl from "../apiUrl.js"
+import { Tabs } from "antd";
+import TabPane from "antd/es/tabs/TabPane";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import { Loader } from "../components/Loader";
+import Swal from 'sweetalert2';
+import apiUrl from "../apiUrl.js";
 
 export const AdminScreen = () => {
-    const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin
+    const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin;
+
     useEffect(() => {
         if (!admin) {
             window.location.href = '/home'
         }
-    }, [])
+    }, [admin]);
+
     return (
         <div>
             <h1>Admin Panel</h1>
@@ -23,12 +25,11 @@ export const AdminScreen = () => {
                 <TabPane tab='Add Room' key='4'><AddRoom /></TabPane>
             </Tabs>
         </div>
-    )
-}
+    );
+};
 const Bookings = () => {
     const [bookings, setBookings] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,7 +40,6 @@ const Bookings = () => {
             } catch (error) {
                 console.log(error)
                 setLoading(false)
-                setError(error)
             }
         }
         fetchData()
@@ -84,7 +84,6 @@ const Bookings = () => {
 const Rooms = () => {
     const [rooms, setRooms] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -94,8 +93,7 @@ const Rooms = () => {
                 setLoading(false)
             } catch (error) {
                 console.log(error)
-                setLoading(false)
-                setError(error)
+                setLoading(false);
             }
         }
         fetchData()
@@ -140,7 +138,6 @@ const Rooms = () => {
 const Users = () => {
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -151,7 +148,6 @@ const Users = () => {
             } catch (error) {
                 console.log(error)
                 setLoading(false)
-                setError(error)
             }
         }
         fetchData()
