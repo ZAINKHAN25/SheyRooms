@@ -110,7 +110,7 @@ export const HomeScreen = () => {
                     </select>
                 </div>
             </div>
-            <div className="row justify-content-center mt-5">
+            <div className="row justify-content-center mt-5 room-father">
                 {loading ? <Loader /> : (rooms.map((room, i) => {
                     return <div key={i} className="col-md-9 mt-2"><Room room={room} checkin={checkIn} checkout={checkOut} /></div>
                 }))}
