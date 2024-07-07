@@ -16,7 +16,7 @@ code {
 
 nav {
   background: black;
-  height: 10vh !important;
+  min-height: 10vh !important;
 }
 
 nav a {
