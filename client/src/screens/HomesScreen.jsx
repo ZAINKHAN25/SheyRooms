@@ -18,6 +18,9 @@ export const HomeScreen = () => {
     const [search, setSearch] = useState('')
     const [type, setType] = useState('all')
 
+
+    console.log(`${API_URL}/api/rooms/getallrooms`);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
