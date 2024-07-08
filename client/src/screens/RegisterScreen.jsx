@@ -1,9 +1,11 @@
-import { useState } from "react"
-import axios from 'axios'
-import { Loader } from "../components/Loader"
-import { Error } from "../components/Error"
-import { Success } from "../components/Success"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import axios from 'axios';
+import { Loader } from "../components/Loader";
+import { Error } from "../components/Error";
+import { Success } from "../components/Success";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../Config.js";
+
 
 export const RegisterScreen = () => {
     const [name, setName] = useState('')
@@ -22,7 +24,7 @@ export const RegisterScreen = () => {
             }
             try {
                 setLoading(true)
-                const result = (await axios.post(`${process.env.API_URL}/api/users/register`, user)).data
+                const result = (await axios.post(`${API_URL}/api/users/register`, user)).data
                 setLoading(false);
                 setSucces(true);
                 setName('')

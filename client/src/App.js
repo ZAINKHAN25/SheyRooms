@@ -8,9 +8,6 @@ import { ProfileScreen } from './screens/ProfileScreen';
 import { AdminScreen } from './screens/AdminScreen';
 import { LandingScreen } from './screens/LandingScreen';
 
-import dotenv from "dotenv";
-
-dotenv.config();
 
 
 export const App = () => {

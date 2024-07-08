@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Loader } from "../components/Loader"
 import { Error } from "../components/Error";
 
+import { API_URL } from "../Config.js";
+
 export const LoginScreen = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -15,7 +17,7 @@ export const LoginScreen = () => {
         }
         try {
             setLoading(true)
-            const result = (await axios.post(`${process.env.API_URL}/api/users/login`, user)).data
+            const result = (await axios.post(`${API_URL}/api/users/login`, user)).data
             setLoading(false)
             localStorage.setItem('currentUser', JSON.stringify(result))
             window.location.href = '/home'
@@ -28,7 +30,7 @@ export const LoginScreen = () => {
     return (
         <div className="row justify-content-center mt-5">
             <div className="col-md-5 login">
-            {loading && <Loader />}{error && <Error message= 'Invalid Credentials' />}
+                {loading && <Loader />}{error && <Error message='Invalid Credentials' />}
                 <h1>Login</h1>
                 <input
                     type="email"

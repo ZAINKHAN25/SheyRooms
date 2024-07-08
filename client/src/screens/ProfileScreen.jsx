@@ -3,7 +3,9 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Loader } from "../components/Loader"
 import Swal from 'sweetalert2'
-import { Tag, Divider } from 'antd'
+import { Tag, Divider } from 'antd';
+
+import { API_URL } from "../Config.js";
 
 const { TabPane } = Tabs
 const user = JSON.parse(localStorage.getItem('currentUser'))
@@ -38,7 +40,7 @@ const MyBooking = () => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const data = (await axios.post(`${process.env.API_URL}/api/bookings/getbookingsbyuserid`, { userId: user._id })).data
+        const data = (await axios.post(`${API_URL}/api/bookings/getbookingsbyuserid`, { userId: user._id })).data
         setBookings(data)
         setLoading(false)
       } catch (error) {
@@ -53,7 +55,7 @@ const MyBooking = () => {
   const cancelBooking = async (bookingId, roomId) => {
     try {
       setLoading(true)
-      const result = (await axios.post(`${process.env.API_URL}/api/bookings/cancelbooking`, { bookingId, roomId })).data
+      const result = (await axios.post(`${API_URL}/api/bookings/cancelbooking`, { bookingId, roomId })).data
       console.log(result)
       setLoading(false)
       Swal.fire('Congrats', 'Your booking has been cancelled!', 'success').then(result => {
