@@ -28,8 +28,8 @@ export const LoginScreen = () => {
         }
     }
     return (
-        <div className="row justify-content-center mt-5">
-            <div className="col-md-5 login">
+        <div className="mt-3 login-father">
+            <div className="login py-5 px-4">
                 {loading && <Loader />}{error && <Error message='Invalid Credentials' />}
                 <h1>Login</h1>
                 <input

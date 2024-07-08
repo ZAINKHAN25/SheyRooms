@@ -42,42 +42,40 @@ export const RegisterScreen = () => {
         } else { alert('Passwords not matched!') }
     }
     return (
-        <div className="row justify-content-center mt-5">
+        <div className="login-father mt-3">
             {loading && <Loader />}{error && <Error />}
-            <div className="col-md-5 login">
+            <div className="login py-5 px-4">
                 {success && <Success message='Registration Success!' />}
-                <div>
-                    <h1>Register</h1>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="name"
-                        value={name}
-                        onChange={event => setName(event.target.value)}
-                    />
-                    <input
-                        type="email"
-                        className="form-control"
-                        placeholder="email"
-                        value={email}
-                        onChange={event => setEmail(event.target.value)}
-                    />
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="password"
-                        value={password}
-                        onChange={event => setPassword(event.target.value)}
-                    />
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="confirm password"
-                        value={confirmPassword}
-                        onChange={event => setConfirmPassword(event.target.value)}
-                    />
-                    <button className="btn btn-primary" onClick={register}>Register</button>
-                </div>
+                <h1>Register</h1>
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="name"
+                    value={name}
+                    onChange={event => setName(event.target.value)}
+                />
+                <input
+                    type="email"
+                    className="form-control"
+                    placeholder="email"
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}
+                />
+                <input
+                    type="password"
+                    className="form-control"
+                    placeholder="password"
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}
+                />
+                <input
+                    type="password"
+                    className="form-control"
+                    placeholder="confirm password"
+                    value={confirmPassword}
+                    onChange={event => setConfirmPassword(event.target.value)}
+                />
+                <button className="btn btn-primary" onClick={register}>Register</button>
             </div>
         </div>
     )
