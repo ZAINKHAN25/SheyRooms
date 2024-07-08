@@ -4,7 +4,6 @@ import { Room } from "../components/Room";
 import { Loader } from "../components/Loader";
 import moment from 'moment';
 import 'antd/dist/reset.css';
-import apiUrl from '../apiUrl.js';
 import { DatePicker } from 'antd'
 const { RangePicker } = DatePicker
 
@@ -21,7 +20,7 @@ export const HomeScreen = () => {
         const fetchData = async () => {
             try {
                 setLoading(true)
-                const data = (await axios.get(`${apiUrl}/api/rooms/getallrooms`)).data
+                const data = (await axios.get(`${process.env.API_URL}/api/rooms/getallrooms`)).data
                 setRooms(data)
                 setDuplicateRooms(data)
                 setLoading(false)

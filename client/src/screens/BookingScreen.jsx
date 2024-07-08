@@ -6,7 +6,6 @@ import { Error } from "../components/Error"
 import StripeCheckout from 'react-stripe-checkout'
 import moment from "moment"
 import Swal from 'sweetalert2'
-import apiUrl from "../apiUrl.js"
 
 export const BookingScreen = () => {
     const { roomid, checkin, checkout } = useParams()
@@ -19,7 +18,7 @@ export const BookingScreen = () => {
     const checkOut = moment(checkout, 'DD-MM-YYYY')
     const days = moment.duration(checkOut.diff(checkIn)).asDays() + 1
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    const clientKey = 'pk_test_51NVGuJCClubva3WfnCXB8NJ9WRodzb7evEwzafAawOdneYgjF0KEoReSpjjYw3Qb7t2kobovcQjVz0sTVRGcD7Gh00RBwXVb3o'
+    const clientKey = process.env.STRIPE_CLIENT_URL;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,7 +27,7 @@ export const BookingScreen = () => {
             }
             try {
                 setLoading(true)
-                const data = (await axios.post(`${apiUrl}/api/rooms/getroombyid`, { roomid })).data
+                const data = (await axios.post(`${process.env.API_URL}/api/rooms/getroombyid`, { roomid })).data
                 setRoom(data)
                 setAmount(data.rentPerNight * days)
                 setLoading(false)
@@ -48,7 +47,7 @@ export const BookingScreen = () => {
         }
         try {
             setLoading(true)
-            const result = await axios.post(`${apiUrl}/api/bookings/bookroom`, bookingDetails)
+            const result = await axios.post(`${process.env.API_URL}/api/bookings/bookroom`, bookingDetails)
             setLoading(false)
             Swal.fire('Congratulations', 'Room has been booked Successfully', 'success').then(result => {
                 window.location.href = '/profile'
@@ -85,7 +84,7 @@ export const BookingScreen = () => {
                         <StripeCheckout
                             token={onToken}
                             stripeKey={clientKey}
-                            currency="BDT"
+                            currency="USD"
                             amount={amount * 100}
                         >
                             <button className="btn btn-primary">Pay Now</button>

@@ -2,7 +2,6 @@ import { useState } from "react"
 import axios from 'axios'
 import { Loader } from "../components/Loader"
 import { Error } from "../components/Error";
-import apiUrl from "../apiUrl.js";
 
 export const LoginScreen = () => {
     const [email, setEmail] = useState('')
@@ -16,7 +15,7 @@ export const LoginScreen = () => {
         }
         try {
             setLoading(true)
-            const result = (await axios.post(`${apiUrl}/api/users/login`, user)).data
+            const result = (await axios.post(`${process.env.API_URL}/api/users/login`, user)).data
             setLoading(false)
             localStorage.setItem('currentUser', JSON.stringify(result))
             window.location.href = '/home'

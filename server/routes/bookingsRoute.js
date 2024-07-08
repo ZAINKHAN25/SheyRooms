@@ -4,7 +4,7 @@ const Booking = require('../models/booking')
 const Room = require('../models/room')
 const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
-const stripe = require('stripe')('sk_test_51NVGuJCClubva3WfyahacpeHILURLemtGwj3cb9pBAkdnSO8mTEKgC4GU4YZMwY61FIDCHS1jdXxobJT6v4yYHwd00KTKJT42k')
+const stripe = require('stripe')(process.env.STRIPE_SERVER_URL)
 
 router.post('/bookroom', async (req, res) => {
     const { room, checkIn, checkOut, amount, days, userId, token } = req.body
@@ -75,4 +75,5 @@ router.get('/getallbookings', async (req, res) => {
         res.send(bookings)
     } catch (error) {console.log(error)}
 })
-module.exports = router
+
+module.exports = router;

@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-var mongoURL = 'mongodb+srv://zainarfeen87:XNyh5tjYgOKY4MBT@sample.fh9zpdj.mongodb.net'
+
+var mongoURL = process.env.MONGO_URL;
 
 // stripe - client: pk_test_51OHpwDAQGIQYXRjhC0POSJmj8TZeI2gYYfjaT5519G3FVwZTPZgtkzvynRuKXe7DNGYs2cAjMyNVsDqJUlHtlaob009k9O137T
 // stripe - server: sk_test_51OHpwDAQGIQYXRjhU8d2ScTIOlO7r0QVb7WRVYAZOls49h7gDijeyL3CBKb0MlXkVBPhyffpHwdI6cqbAVP2Dme300e33VMM48

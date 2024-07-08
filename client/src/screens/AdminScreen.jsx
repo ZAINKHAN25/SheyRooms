@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Loader } from "../components/Loader";
 import Swal from 'sweetalert2';
-import apiUrl from "../apiUrl.js";
 
 export const AdminScreen = () => {
     const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin;
@@ -34,7 +33,7 @@ const Bookings = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = (await axios.get(`${apiUrl}/api/bookings/getallbookings`)).data
+                const data = (await axios.get(`${process.env.API_URL}/api/bookings/getallbookings`)).data
                 setBookings(data)
                 setLoading(false)
             } catch (error) {
@@ -88,7 +87,7 @@ const Rooms = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = (await axios.get(`${apiUrl}/api/rooms/getallrooms`)).data
+                const data = (await axios.get(`${process.env.API_URL}/api/rooms/getallrooms`)).data
                 setRooms(data)
                 setLoading(false)
             } catch (error) {
@@ -142,7 +141,7 @@ const Users = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = (await axios.get(`${apiUrl}/api/users/getallusers`)).data
+                const data = (await axios.get(`${process.env.API_URL}/api/users/getallusers`)).data
                 setUsers(data)
                 setLoading(false)
             } catch (error) {
@@ -203,7 +202,7 @@ const AddRoom = () => {
         }
         try {
             setLoading(true)
-            const result = (await axios.post(`${apiUrl}/api/rooms/addroom`, newRoom)).data
+            const result = (await axios.post(`${process.env.API_URL}/api/rooms/addroom`, newRoom)).data
             console.log(result)
             setLoading(false)
             Swal.fire('Congrats', 'Room Added Successfully', 'success')
